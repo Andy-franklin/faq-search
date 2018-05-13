@@ -2,17 +2,32 @@
 
 namespace AndyFranklin\FaqBundle\Entity;
 
+
+use DateTime;
+
 class Question
 {
     private $id;
     private $title;
-    private $body;
     private $createdAt;
     private $updatedAt;
     private $ranking;
     private $rating;
     private $published;
     private $slug;
+
+    /**
+     * Question constructor.
+     */
+    public function __construct()
+    {
+        $this->createdAt = new DateTime();
+        $this->updatedAt = new DateTime();
+        $this->ranking = 0;
+        $this->rating = 0;
+        $this->published = true;
+    }
+
     /**
      * @return mixed
      */
@@ -40,20 +55,6 @@ class Question
     public function setTitle($title)
     {
         $this->title = $title;
-    }
-    /**
-     * @return mixed
-     */
-    public function getBody()
-    {
-        return $this->body;
-    }
-    /**
-     * @param mixed $body
-     */
-    public function setBody($body)
-    {
-        $this->body = $body;
     }
     /**
      * @return mixed
