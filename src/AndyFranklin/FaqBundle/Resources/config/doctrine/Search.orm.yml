@@ -1,0 +1,22 @@
+AndyFranklin\FaqBundle\Entity\Search:
+  type: entity
+  table: search
+  id:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: IDENTITY
+  fields:
+    query:
+      type: string
+    count:
+      type: integer
+    createdAt:
+      type: datetime
+    updatedAt:
+      type: datetime
+    published:
+      type: boolean
+    slug:
+      type: string

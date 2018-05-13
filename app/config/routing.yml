@@ -1,0 +1,7 @@
+andy_franklin_faq:
+    resource: "@AndyFranklinFaqBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

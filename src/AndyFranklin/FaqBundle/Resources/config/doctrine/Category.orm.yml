@@ -1,0 +1,20 @@
+AndyFranklin\FaqBundle\Entity\Category:
+  type: entity
+  table: category
+  id:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: IDENTITY
+  fields:
+    title:
+      type: string
+    createdAt:
+      type: datetime
+    updatedAt:
+      type: datetime
+    published:
+      type: boolean
+    slug:
+      type: string

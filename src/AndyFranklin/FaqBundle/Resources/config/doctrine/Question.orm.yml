@@ -1,0 +1,26 @@
+AndyFranklin\FaqBundle\Entity\Question:
+  type: entity
+  table: question
+  id:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: IDENTITY
+  fields:
+    title:
+      type: string
+    body:
+      type: string
+    createdAt:
+      type: datetime
+    updatedAt:
+      type: datetime
+    ranking:
+      type: integer
+    rating:
+      type: integer
+    published:
+      type: boolean
+    slug:
+      type: string
