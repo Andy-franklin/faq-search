@@ -15,6 +15,7 @@ class Question
     private $rating;
     private $published;
     private $slug;
+    private $deletedAt;
 
     /**
      * Question constructor.
@@ -139,5 +140,21 @@ class Question
     public function setSlug($slug)
     {
         $this->slug = $slug;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeletedAt()
+    {
+        return $this->deletedAt;
+    }
+
+    /**
+     * @param mixed $deletedAt
+     */
+    public function setDeletedAt($deletedAt)
+    {
+        $this->deletedAt = $deletedAt;
     }
 }

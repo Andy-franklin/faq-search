@@ -11,6 +11,8 @@ class Search
     private $updatedAt;
     private $published;
     private $slug;
+    private $deletedAt;
+
     /**
      * @return mixed
      */
@@ -108,5 +110,21 @@ class Search
     public function setSlug($slug)
     {
         $this->slug = $slug;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeletedAt()
+    {
+        return $this->deletedAt;
+    }
+
+    /**
+     * @param mixed $deletedAt
+     */
+    public function setDeletedAt($deletedAt)
+    {
+        $this->deletedAt = $deletedAt;
     }
 }

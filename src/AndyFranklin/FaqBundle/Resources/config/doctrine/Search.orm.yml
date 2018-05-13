@@ -1,6 +1,11 @@
 AndyFranklin\FaqBundle\Entity\Search:
   type: entity
   table: search
+  gedmo:
+    soft_deleteable:
+      field_name: deletedAt
+      time_aware: false
+      hard_delete: true
   id:
     id:
       id: true
@@ -14,9 +19,16 @@ AndyFranklin\FaqBundle\Entity\Search:
       type: integer
     createdAt:
       type: datetime
+      gedmo:
+        timestampable:
+          on: create
     updatedAt:
       type: datetime
+      gedmo:
+        timestampable:
+          on: update
     published:
       type: boolean
-    slug:
-      type: string
+    deletedAt:
+      tpye: date
+      nullable: true

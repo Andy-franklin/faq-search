@@ -2,14 +2,14 @@
 
 namespace AndyFranklin\FaqBundle\Entity;
 
-class Category
+class Answer
 {
     private $id;
-    private $title;
+    private $body;
     private $createdAt;
     private $updatedAt;
+    private $rating;
     private $published;
-    private $slug;
     private $deletedAt;
 
     /**
@@ -19,6 +19,7 @@ class Category
     {
         return $this->id;
     }
+
     /**
      * @param mixed $id
      */
@@ -26,20 +27,23 @@ class Category
     {
         $this->id = $id;
     }
+
     /**
      * @return mixed
      */
-    public function getTitle()
+    public function getBody()
     {
-        return $this->title;
+        return $this->body;
     }
+
     /**
-     * @param mixed $title
+     * @param mixed $body
      */
-    public function setTitle($title)
+    public function setBody($body)
     {
-        $this->title = $title;
+        $this->body = $body;
     }
+
     /**
      * @return mixed
      */
@@ -47,6 +51,7 @@ class Category
     {
         return $this->createdAt;
     }
+
     /**
      * @param mixed $createdAt
      */
@@ -54,6 +59,7 @@ class Category
     {
         $this->createdAt = $createdAt;
     }
+
     /**
      * @return mixed
      */
@@ -61,6 +67,7 @@ class Category
     {
         return $this->updatedAt;
     }
+
     /**
      * @param mixed $updatedAt
      */
@@ -68,6 +75,23 @@ class Category
     {
         $this->updatedAt = $updatedAt;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param mixed $rating
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+    }
+
     /**
      * @return mixed
      */
@@ -75,26 +99,13 @@ class Category
     {
         return $this->published;
     }
+
     /**
      * @param mixed $published
      */
     public function setPublished($published)
     {
         $this->published = $published;
-    }
-    /**
-     * @return mixed
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-    /**
-     * @param mixed $slug
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
     }
 
     /**

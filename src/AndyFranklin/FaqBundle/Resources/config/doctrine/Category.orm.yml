@@ -1,6 +1,11 @@
 AndyFranklin\FaqBundle\Entity\Category:
   type: entity
   table: category
+  gedmo:
+    soft_deleteable:
+      field_name: deletedAt
+      time_aware: false
+      hard_delete: true
   id:
     id:
       id: true
@@ -12,9 +17,24 @@ AndyFranklin\FaqBundle\Entity\Category:
       type: string
     createdAt:
       type: datetime
+      gedmo:
+        timestampable:
+          on: create
     updatedAt:
       type: datetime
+      gedmo:
+        timestampable:
+          on: update
     published:
       type: boolean
     slug:
       type: string
+      gedmo:
+        slug:
+          separator: _
+          style: camel
+          fields:
+            - title
+    deletedAt:
+      tpye: date
+      nullable: true
