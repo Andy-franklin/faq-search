@@ -1,4 +1,5 @@
 services:
-#    andy_franklin_faq.example:
-#        class: AndyFranklin\FaqBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    AndyFranklin\FaqBundle\Controller\QuestionController:
+        class: AndyFranklin\FaqBundle\Controller\QuestionController
+        public: true
+        arguments: ['@fos_rest.view_handler', '@Doctrine\ORM\EntityManagerInterface']
