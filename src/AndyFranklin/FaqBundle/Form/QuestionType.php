@@ -3,11 +3,12 @@
 namespace AndyFranklin\FaqBundle\Form;
 
 use AndyFranklin\FaqBundle\Entity\Question;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class QuestionType
+class QuestionType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
