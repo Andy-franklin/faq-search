@@ -17,6 +17,9 @@ class Question
     private $slug;
     private $deletedAt;
 
+    private $categories;
+    private $answers;
+
     /**
      * Question constructor.
      */

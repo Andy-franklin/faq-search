@@ -36,5 +36,9 @@ AndyFranklin\FaqBundle\Entity\Category:
           fields:
             - title
     deletedAt:
-      tpye: date
+      type: datetime
       nullable: true
+  manyToOne:
+    question:
+      targetEntity: AndyFranklin\FaqBundle\Entity\Question
+      inversedBy: categories

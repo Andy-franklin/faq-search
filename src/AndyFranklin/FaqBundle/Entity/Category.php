@@ -12,6 +12,8 @@ class Category
     private $slug;
     private $deletedAt;
 
+    private $question;
+
     /**
      * @return mixed
      */

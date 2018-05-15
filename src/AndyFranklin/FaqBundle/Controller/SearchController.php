@@ -2,15 +2,10 @@
 
 namespace AndyFranklin\FaqBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\RestBundle\Controller\FOSRestController;
 
-class SearchController extends Controller
+class SearchController extends FOSRestController
 {
-    public function indexAction($name)
-    {
-        return $this->render('', array('name' => $name));
-    }
-
     public function createAction()
     {
 

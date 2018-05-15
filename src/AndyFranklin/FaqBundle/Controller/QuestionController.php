@@ -6,6 +6,7 @@ use AndyFranklin\FaqBundle\Entity\Question;
 use AndyFranklin\FaqBundle\Form\QuestionType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
@@ -28,16 +29,14 @@ class QuestionController extends Controller
         $this->entityManager = $entityManager;
     }
 
-    public function indexAction($name)
-    {
-        return $this->render('', array('name' => $name));
-    }
-
     public function createAction(Request $request)
     {
         $question = new Question();
 
-        $form = $this->createForm(QuestionType::class, $question);
+        //Create an un-named form so that the form doesn't use a namespace
+        //Using HttpFoundationRequestHandler
+        /** @var Form $form */
+        $form = $this->get('form.factory')->createNamed('', QuestionType::class, $question);
 
         $form->handleRequest($request);
 

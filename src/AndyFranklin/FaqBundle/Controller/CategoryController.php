@@ -2,12 +2,9 @@
 
 namespace AndyFranklin\FaqBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\RestBundle\Controller\FOSRestController;
 
-class CategoryController extends Controller
+class CategoryController extends FOSRestController
 {
-    public function indexAction($name)
-    {
-        return $this->render('', array('name' => $name));
-    }
+
 }

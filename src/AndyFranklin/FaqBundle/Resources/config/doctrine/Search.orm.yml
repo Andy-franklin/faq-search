@@ -30,5 +30,5 @@ AndyFranklin\FaqBundle\Entity\Search:
     published:
       type: boolean
     deletedAt:
-      tpye: date
+      type: datetime
       nullable: true

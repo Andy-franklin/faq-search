@@ -12,6 +12,8 @@ class Answer
     private $published;
     private $deletedAt;
 
+    private $question;
+
     /**
      * @return mixed
      */

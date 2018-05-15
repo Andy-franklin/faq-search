@@ -76,6 +76,7 @@ stof_doctrine_extensions:
         default:
             timestampable: true
             sluggable: true
+            softdeleteable: true
 fos_rest:
     format_listener:
         rules:

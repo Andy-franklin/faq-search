@@ -40,5 +40,12 @@ AndyFranklin\FaqBundle\Entity\Question:
           fields:
             - title
     deletedAt:
-      tpye: date
+      type: datetime
       nullable: true
+  oneToMany:
+    answers:
+      targetEntity: AndyFranklin\FaqBundle\Entity\Answer
+      mappedBy: question
+    categories:
+      targetEntity: AndyFranklin\FaqBundle\Entity\Category
+      mappedBy: question
