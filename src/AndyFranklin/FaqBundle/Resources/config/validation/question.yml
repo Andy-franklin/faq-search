@@ -1,0 +1,7 @@
+AndyFranklin\FaqBundle\Entity\Question:
+    properties:
+        title:
+            - NotNull: ~
+            - Length:
+                min: 30
+                max: 250
