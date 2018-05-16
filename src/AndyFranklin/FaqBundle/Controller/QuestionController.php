@@ -53,4 +53,36 @@ class QuestionController extends Controller
 
         return $this->viewHandler->handle($view);
     }
+
+    public function singleSlugAction(String $slug)
+    {
+        $questionRepository = $this->entityManager->getRepository(Question::class);
+
+        /** @var Question $question */
+        $question = $questionRepository->findOneBy(['slug' => $slug]);
+
+        if (null === $question) {
+            $view = View::create(null, Response::HTTP_NOT_FOUND);
+        } else {
+            $view = View::create($question, Response::HTTP_OK);
+        }
+
+        return $this->viewHandler->handle($view);
+    }
+
+    public function singleIdAction($id)
+    {
+        $questionRepository = $this->entityManager->getRepository(Question::class);
+
+        /** @var Question $question */
+        $question = $questionRepository->find($id);
+
+        if (null === $question) {
+            $view = View::create(null, Response::HTTP_NOT_FOUND);
+        } else {
+            $view = View::create($question, Response::HTTP_OK);
+        }
+
+        return $this->viewHandler->handle($view);
+    }
 }

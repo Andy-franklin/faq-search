@@ -33,10 +33,11 @@ AndyFranklin\FaqBundle\Entity\Question:
       type: boolean
     slug:
       type: string
+      length: 50
       gedmo:
         slug:
           separator: _
-          style: camel
+          style: lower
           fields:
             - title
     deletedAt:

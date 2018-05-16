@@ -1,7 +1,7 @@
-andy_franklin_faq_homepage:
-    path:     /
-    defaults: { _controller: AndyFranklinFaqBundle:Question:index }
-
 question_create:
     path: /question/create
     defaults: { _controller: AndyFranklinFaqBundle:Question:create }
+
+question_get:
+    path: /question/slug/{slug}
+    defaults: { _controller: AndyFranklinFaqBundle:Question:singleSlug }
