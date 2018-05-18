@@ -3,3 +3,11 @@ services:
         class: AndyFranklin\FaqBundle\Controller\QuestionController
         public: true
         arguments: ['@fos_rest.view_handler', '@Doctrine\ORM\EntityManagerInterface']
+    AndyFranklin\FaqBundle\Controller\AnswerController:
+        class: AndyFranklin\FaqBundle\Controller\AnswerController
+        public: true
+        arguments: ['@fos_rest.view_handler', '@Doctrine\ORM\EntityManagerInterface']
+    AndyFranklin\FaqBundle\Controller\CategoryController:
+        class: AndyFranklin\FaqBundle\Controller\CategoryController
+        public: true
+        arguments: ['@fos_rest.view_handler', '@Doctrine\ORM\EntityManagerInterface']

@@ -1,9 +1,9 @@
-AndyFranklin\FaqBundle\Entity\Question:
+AndyFranklin\FaqBundle\Entity\Category:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: title
     properties:
         title:
             - NotNull: ~
             - Length:
-                min: 30
-                max: 250
+                min: 3
+                max: 20

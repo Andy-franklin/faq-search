@@ -1,2 +1,4 @@
 imports:
     - { resource: 'validation/question.yml' }
+    - { resource: 'validation/answer.yml' }
+    - { resource: 'validation/category.yml' }

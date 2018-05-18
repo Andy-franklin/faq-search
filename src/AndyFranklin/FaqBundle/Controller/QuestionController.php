@@ -12,7 +12,6 @@ use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandlerInterface;
 use Symfony\Component\HttpFoundation\Response;
 
-
 class QuestionController extends Controller
 {
     private $viewHandler;

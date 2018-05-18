@@ -2,6 +2,14 @@ question_create:
     path: /question/create
     defaults: { _controller: AndyFranklinFaqBundle:Question:create }
 
-question_get:
+question_get_by_slug:
     path: /question/slug/{slug}
     defaults: { _controller: AndyFranklinFaqBundle:Question:singleSlug }
+
+question_get_by_id:
+    path: /question/{id}
+    defaults: { _controller: AndyFranklinFaqBundle:Question:singleId }
+
+answer_create:
+    path: /answer/create
+    defaults: { _controller: AndyFranklinFaqBundle:Answer:create }

@@ -32,7 +32,7 @@ AndyFranklin\FaqBundle\Entity\Category:
       gedmo:
         slug:
           separator: _
-          style: camel
+          style: lower
           fields:
             - title
     deletedAt:

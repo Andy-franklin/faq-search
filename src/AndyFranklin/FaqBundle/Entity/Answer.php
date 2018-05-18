@@ -2,6 +2,8 @@
 
 namespace AndyFranklin\FaqBundle\Entity;
 
+use DateTime;
+
 class Answer
 {
     private $id;
@@ -11,8 +13,34 @@ class Answer
     private $rating;
     private $published;
     private $deletedAt;
-
     private $question;
+
+    /**
+     * Answer constructor.
+     */
+    public function __construct()
+    {
+        $this->createdAt = new DateTime();
+        $this->updatedAt = new DateTime();
+        $this->rating = 0;
+        $this->published = true;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
+
+    /**
+     * @param mixed $question
+     */
+    public function setQuestion($question)
+    {
+        $this->question = $question;
+    }
 
     /**
      * @return mixed
