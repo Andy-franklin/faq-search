@@ -2,6 +2,8 @@
 
 namespace AndyFranklin\FaqBundle\Entity;
 
+use DateTime;
+
 class Category
 {
     private $id;
@@ -11,8 +13,35 @@ class Category
     private $published;
     private $slug;
     private $deletedAt;
+    private $questions;
 
-    private $question;
+    private $question; //?
+
+    /**
+     * Category constructor.
+     */
+    public function __construct()
+    {
+        $this->createdAt = new DateTime();
+        $this->updatedAt = new DateTime();
+        $this->published = true;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuestions()
+    {
+        return $this->questions;
+    }
+
+    /**
+     * @param mixed $questions
+     */
+    public function setQuestions($questions)
+    {
+        $this->questions = $questions;
+    }
 
     /**
      * @return mixed
@@ -21,6 +50,7 @@ class Category
     {
         return $this->id;
     }
+
     /**
      * @param mixed $id
      */
@@ -28,6 +58,7 @@ class Category
     {
         $this->id = $id;
     }
+
     /**
      * @return mixed
      */
@@ -35,6 +66,7 @@ class Category
     {
         return $this->title;
     }
+
     /**
      * @param mixed $title
      */
@@ -42,6 +74,7 @@ class Category
     {
         $this->title = $title;
     }
+
     /**
      * @return mixed
      */
@@ -49,6 +82,7 @@ class Category
     {
         return $this->createdAt;
     }
+
     /**
      * @param mixed $createdAt
      */
@@ -56,6 +90,7 @@ class Category
     {
         $this->createdAt = $createdAt;
     }
+
     /**
      * @return mixed
      */
@@ -63,6 +98,7 @@ class Category
     {
         return $this->updatedAt;
     }
+
     /**
      * @param mixed $updatedAt
      */
@@ -70,6 +106,7 @@ class Category
     {
         $this->updatedAt = $updatedAt;
     }
+
     /**
      * @return mixed
      */
@@ -77,6 +114,7 @@ class Category
     {
         return $this->published;
     }
+
     /**
      * @param mixed $published
      */
@@ -84,6 +122,7 @@ class Category
     {
         $this->published = $published;
     }
+
     /**
      * @return mixed
      */
@@ -91,6 +130,7 @@ class Category
     {
         return $this->slug;
     }
+
     /**
      * @param mixed $slug
      */

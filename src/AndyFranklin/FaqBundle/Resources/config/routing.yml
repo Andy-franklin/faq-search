@@ -1,15 +1,32 @@
 question_create:
-    path: /question/create
+    path: /question
     defaults: { _controller: AndyFranklinFaqBundle:Question:create }
+    methods: [POST]
 
 question_get_by_slug:
     path: /question/slug/{slug}
     defaults: { _controller: AndyFranklinFaqBundle:Question:singleSlug }
 
-question_get_by_id:
+question_get:
     path: /question/{id}
     defaults: { _controller: AndyFranklinFaqBundle:Question:singleId }
+    methods: [GET]
+    requirements:
+        id: '\d+'
+
+question_add_category:
+    path: /question/{id}/category
+    defaults: { _controller: AndyFranklinFaqBundle:Question:addCategory }
+    methods: [POST]
+    requirements:
+        id: '\d+'
 
 answer_create:
-    path: /answer/create
+    path: /answer
     defaults: { _controller: AndyFranklinFaqBundle:Answer:create }
+    methods: [POST]
+
+category_create:
+    path: /category
+    defaults: { _controller: AndyFranklinFaqBundle:Category:create }
+    methods: [POST]

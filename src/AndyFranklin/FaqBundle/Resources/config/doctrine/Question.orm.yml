@@ -1,4 +1,5 @@
 AndyFranklin\FaqBundle\Entity\Question:
+  repositoryClass: AndyFranklin\FaqBundle\Repository\QuestionRepository
   type: entity
   table: question
   gedmo:
@@ -47,6 +48,7 @@ AndyFranklin\FaqBundle\Entity\Question:
     answers:
       targetEntity: AndyFranklin\FaqBundle\Entity\Answer
       mappedBy: question
+  manyToMany:
     categories:
       targetEntity: AndyFranklin\FaqBundle\Entity\Category
-      mappedBy: question
+      inversedBy: questions

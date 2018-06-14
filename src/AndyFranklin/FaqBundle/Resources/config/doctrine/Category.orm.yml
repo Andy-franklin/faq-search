@@ -38,7 +38,7 @@ AndyFranklin\FaqBundle\Entity\Category:
     deletedAt:
       type: datetime
       nullable: true
-  manyToOne:
-    question:
+  manyToMany:
+    questions:
       targetEntity: AndyFranklin\FaqBundle\Entity\Question
-      inversedBy: categories
+      mappedBy: categories

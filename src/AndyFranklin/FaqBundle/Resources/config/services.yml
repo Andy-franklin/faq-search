@@ -1,13 +1,23 @@
 services:
-    AndyFranklin\FaqBundle\Controller\QuestionController:
-        class: AndyFranklin\FaqBundle\Controller\QuestionController
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    AndyFranklin\FaqBundle\:
+        resource: '../../*'
+        exclude: '../../{Entity,Tests,Repository,Exception}'
+
+    AndyFranklin\FaqBundle\Controller\:
+        resource: '../../Controller'
         public: true
-        arguments: ['@fos_rest.view_handler', '@Doctrine\ORM\EntityManagerInterface']
-    AndyFranklin\FaqBundle\Controller\AnswerController:
-        class: AndyFranklin\FaqBundle\Controller\AnswerController
-        public: true
-        arguments: ['@fos_rest.view_handler', '@Doctrine\ORM\EntityManagerInterface']
-    AndyFranklin\FaqBundle\Controller\CategoryController:
-        class: AndyFranklin\FaqBundle\Controller\CategoryController
-        public: true
-        arguments: ['@fos_rest.view_handler', '@Doctrine\ORM\EntityManagerInterface']
+        tags: ['controller.service_arguments']
+
+    AndyFranklin\FaqBundle\Form\Extension\HttpFoundation\HttpFoundationRequestHandler:
+        decorates: form.type_extension.form.request_handler
+        decoration_priority: 256
+        public: false
+
+    AndyFranklin\FaqBundle\Repository\QuestionRepository:
+        factory: 'doctrine.orm.entity_manager:getRepository'
+        arguments: ['AndyFranklin\FaqBundle\Entity\Question']
