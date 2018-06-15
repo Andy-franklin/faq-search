@@ -15,8 +15,6 @@ class Category
     private $deletedAt;
     private $questions;
 
-    private $question; //?
-
     /**
      * Category constructor.
      */

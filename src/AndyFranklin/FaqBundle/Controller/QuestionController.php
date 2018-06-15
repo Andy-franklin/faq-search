@@ -6,6 +6,7 @@ use AndyFranklin\FaqBundle\Entity\Question;
 use AndyFranklin\FaqBundle\Form\QuestionType;
 use AndyFranklin\FaqBundle\Repository\QuestionRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use AndyFranklin\FaqBundle\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,8 +27,11 @@ class QuestionController extends Controller
      * @param EntityManagerInterface $entityManager
      * @param QuestionRepository $questionRepository
      */
-    public function __construct(ViewHandlerInterface $viewHandler, EntityManagerInterface $entityManager, QuestionRepository $questionRepository)
-    {
+    public function __construct(
+        ViewHandlerInterface $viewHandler,
+        EntityManagerInterface $entityManager,
+        QuestionRepository $questionRepository
+    ) {
         $this->viewHandler = $viewHandler;
         $this->entityManager = $entityManager;
         $this->questionRepository = $questionRepository;
@@ -60,20 +64,21 @@ class QuestionController extends Controller
 
     public function addCategoryAction($id, Request $request)
     {
-        $request = $this->getQuestion($id);
-
-        
-    }
-
-    public function singleSlugAction(String $slug)
-    {
-        $question = $this->getQuestion($slug);
-        return $this->viewHandler->handle(View::create($question, Response::HTTP_OK));
-    }
-
-    public function singleIdAction($id)
-    {
+        /** @var Question $question */
         $question = $this->getQuestion($id);
+
+        /** @var Category $category */
+        $category = $this->entityManager->getRepository(Category::class)->find($request->get('category'));
+
+        if (null === $category) {
+            throw new NotFoundHttpException(sprintf('The category with id %s does not exist', $category));
+        }
+
+        $question->addCategory($category);
+
+        $this->entityManager->persist($question);
+        $this->entityManager->flush();
+
         return $this->viewHandler->handle(View::create($question, Response::HTTP_OK));
     }
 
@@ -93,5 +98,43 @@ class QuestionController extends Controller
         }
 
         return $question;
+    }
+
+    public function singleSlugAction(String $slug)
+    {
+        $question = $this->getQuestion($slug);
+        return $this->viewHandler->handle(View::create($question, Response::HTTP_OK));
+    }
+
+    public function singleIdAction($id)
+    {
+        $question = $this->getQuestion($id);
+        return $this->viewHandler->handle(View::create($question, Response::HTTP_OK));
+    }
+
+    public function upRateAction($id)
+    {
+        $question = $this->getQuestion($id);
+
+        $currentRating = $question->getRating();
+        $question->setRating($currentRating + 1);
+
+        $this->entityManager->persist($question);
+        $this->entityManager->flush();
+
+        return $this->viewHandler->handle(View::create($question, Response::HTTP_OK));
+    }
+
+    public function downRateAction($id)
+    {
+        $question = $this->getQuestion($id);
+
+        $currentRating = $question->getRating();
+        $question->setRating($currentRating - 1);
+
+        $this->entityManager->persist($question);
+        $this->entityManager->flush();
+
+        return $this->viewHandler->handle(View::create($question, Response::HTTP_OK));
     }
 }

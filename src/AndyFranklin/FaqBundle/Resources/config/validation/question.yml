@@ -1,6 +1,7 @@
 AndyFranklin\FaqBundle\Entity\Question:
     constraints:
-        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: title
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [title, category]
     properties:
         title:
             - NotNull: ~

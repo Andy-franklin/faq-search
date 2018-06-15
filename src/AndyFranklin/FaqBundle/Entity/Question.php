@@ -4,20 +4,59 @@ namespace AndyFranklin\FaqBundle\Entity;
 
 
 use DateTime;
+use Doctrine\Common\Collections\Collection;
 
 class Question
 {
     private $id;
+    /**
+     * @var string $title
+     */
     private $title;
+
+    /**
+     * @var DateTime $createdAt
+     */
     private $createdAt;
+
+    /**
+     * @var DateTime $updatedAt
+     */
     private $updatedAt;
+
+    /**
+     * @var int $ranking
+     */
     private $ranking;
+
+    /**
+     * @var int $rating
+     */
     private $rating;
+
+    /**
+     * @var bool $published
+     */
     private $published;
+
+    /**
+     * @var string $slug
+     */
     private $slug;
+
+    /**
+     * @var DateTime $deletedAt
+     */
     private $deletedAt;
 
+    /**
+     * @var Collection $categories
+     */
     private $categories;
+
+    /**
+     * @var Collection $answers
+     */
     private $answers;
 
     /**
@@ -35,10 +74,39 @@ class Question
     /**
      * @return mixed
      */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    public function addCategory($category)
+    {
+        $this->categories->add($category);
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAnswers()
+    {
+        return $this->answers;
+    }
+
+    public function addAnswer($answer)
+    {
+        $this->answers->add($answer);
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
+
     /**
      * @param mixed $id
      */
@@ -46,6 +114,7 @@ class Question
     {
         $this->id = $id;
     }
+
     /**
      * @return mixed
      */
@@ -53,6 +122,7 @@ class Question
     {
         return $this->title;
     }
+
     /**
      * @param mixed $title
      */
@@ -60,6 +130,7 @@ class Question
     {
         $this->title = $title;
     }
+
     /**
      * @return mixed
      */
@@ -67,6 +138,7 @@ class Question
     {
         return $this->createdAt;
     }
+
     /**
      * @param mixed $createdAt
      */
@@ -74,6 +146,7 @@ class Question
     {
         $this->createdAt = $createdAt;
     }
+
     /**
      * @return mixed
      */
@@ -81,6 +154,7 @@ class Question
     {
         return $this->updatedAt;
     }
+
     /**
      * @param mixed $updatedAt
      */
@@ -88,6 +162,7 @@ class Question
     {
         $this->updatedAt = $updatedAt;
     }
+
     /**
      * @return mixed
      */
@@ -95,6 +170,7 @@ class Question
     {
         return $this->ranking;
     }
+
     /**
      * @param mixed $ranking
      */
@@ -102,6 +178,7 @@ class Question
     {
         $this->ranking = $ranking;
     }
+
     /**
      * @return mixed
      */
@@ -109,6 +186,7 @@ class Question
     {
         return $this->rating;
     }
+
     /**
      * @param mixed $rating
      */
@@ -116,6 +194,7 @@ class Question
     {
         $this->rating = $rating;
     }
+
     /**
      * @return mixed
      */
@@ -123,6 +202,7 @@ class Question
     {
         return $this->published;
     }
+
     /**
      * @param mixed $published
      */
@@ -130,6 +210,7 @@ class Question
     {
         $this->published = $published;
     }
+
     /**
      * @return mixed
      */
@@ -137,6 +218,7 @@ class Question
     {
         return $this->slug;
     }
+
     /**
      * @param mixed $slug
      */

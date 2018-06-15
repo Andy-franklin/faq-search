@@ -1,4 +1,5 @@
 AndyFranklin\FaqBundle\Entity\Category:
+  repositoryClass: AndyFranklin\FaqBundle\Repository\CategoryRepository
   type: entity
   table: category
   gedmo:

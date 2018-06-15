@@ -1,4 +1,5 @@
 AndyFranklin\FaqBundle\Entity\Answer:
+  repositoryClass: AndyFranklin\FaqBundle\Repository\AnswerRepository
   type: entity
   table: answer
   gedmo:

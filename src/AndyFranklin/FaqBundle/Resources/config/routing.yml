@@ -21,10 +21,32 @@ question_add_category:
     requirements:
         id: '\d+'
 
+question_up_rating:
+    path: /question/{id}/rating/up
+    defaults: { _controller: AndyFranklinFaqBundle:Question:upRate }
+    methods: [GET]
+
+question_down_rating:
+    path: /question/{id}/rating/down
+    defaults: { _controller: AndyFranklinFaqBundle:Question:downRate }
+    methods: [GET]
+
 answer_create:
     path: /answer
     defaults: { _controller: AndyFranklinFaqBundle:Answer:create }
     methods: [POST]
+
+answer_up_rating:
+    path: /answer/{id}/rating/up
+    defaults: { _controller: AndyFranklinFaqBundle:Answer:upRate }
+    methods: [GET]
+
+answer_down_rating:
+    path: /answer/{id}/rating/down
+    defaults: { _controller: AndyFranklinFaqBundle:Answer:downRate }
+    methods: [GET]
+
+
 
 category_create:
     path: /category

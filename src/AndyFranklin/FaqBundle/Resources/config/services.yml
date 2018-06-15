@@ -21,3 +21,7 @@ services:
     AndyFranklin\FaqBundle\Repository\QuestionRepository:
         factory: 'doctrine.orm.entity_manager:getRepository'
         arguments: ['AndyFranklin\FaqBundle\Entity\Question']
+
+    AndyFranklin\FaqBundle\Repository\AnswerRepository:
+        factory: 'doctrine.orm.entity_manager:getRepository'
+        arguments: ['AndyFranklin\FaqBundle\Entity\Answer']
